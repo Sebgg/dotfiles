@@ -1,0 +1,5 @@
+[Added Associations]
+application/x-shellscript=nautilus-autorun-software.desktop;
+image/jpeg=feh.desktop;
+text/x-tex=atom.desktop;
+application/x-executable=apturl.desktop;

@@ -1,0 +1,141 @@
+[colors]
+transparent = #00000000
+background = #15213e
+foreground = #FFFFFF
+inactive-text = #818D92
+accent = #15213e
+alert = #C44444
+
+[bar/master]
+monitor = ${env:MONITOR}
+width = 100%
+height = 32
+background = ${colors.transparent}
+foreground = ${colors.foreground}
+font-0 = "Lemon :pixelsize=14:antialias=true;1"
+font-1 = "FontAwesome:pixelsize=12:antialias=true;1"
+
+[bar/top]
+inherit = bar/master
+modules-left = i3
+modules-right = volume powermenu date time
+
+border-top-size = 5
+border-left-size = 0
+border-right-size = 20
+
+module-margin-left = 0
+module-margin-right = 0
+padding-left = 0
+padding-right = 0
+
+[module/i3]
+type = internal/i3
+enable-click = true
+enable-scroll = false
+strip-wsnumbers = true
+pin-workspaces = true
+index-sort = true
+
+format-background = ${colors.background}
+
+label-visible-background = ${colors.background}
+label-visible-foreground = ${colors.inactive-text}
+label-visible-padding = 4
+
+label-focused-background = ${colors.accent}
+label-focused-foreground = ${colors.foreground}
+label-focused-padding = 4
+
+label-unfocused-background = ${colors.background}
+label-unfocused-foreground = ${colors.inactive-text}
+label-unfocused-padding = 4
+
+label-urgent-background = ${colors.alert}
+label-urgent-foreground = ${colors.foreground}
+label-urgent-padding = 4
+
+format-margin = 4
+
+[module/date]
+type = internal/date
+interval = 1200
+label = %date% %time%
+date = %A
+time = %H: %M
+format-padding = 2
+format-background = ${colors.background}
+
+[module/powermenu]
+type = custom/menu
+label-open = "System"
+label-open-font = 4
+label-close = "Close"
+label-separator = " - "
+
+menu-0-0 = "Reboot"
+menu-0-0-exec = systemctl reboot
+menu-0-1 = "Shutdown"
+menu-0-1-exec = systemctl poweroff
+menu-0-2 = "Lock"
+menu-0-2-exec = i3lock-fancy -p
+
+format-padding = 5
+format-background = ${colors.background}
+format-foreground = ${colors.foreground}
+format-margin = 4
+
+[module/volume]
+type = internal/pulseaudio
+label-volume = vol %percentage%%
+format-volume-padding = 5
+format-volume-background = ${colors.accent}
+format-volume-foreground = ${colors.foreground}
+format-volume-margin = 0
+
+[module/cpu]
+type = internal/cpu
+label = cpu %percentage%%
+format-padding = 5
+format-background = ${colors.accent}
+format-foreground = ${colors.foreground}
+format-margin = 0
+
+[module/memory]
+type = internal/memory
+label = ram %gb_used%
+format-padding = 5
+format-background = ${colors.accent}
+format-foreground = ${colors.foreground}
+format-margin = 4
+
+[module/network]
+type = internal/network
+interface = eth2
+
+; Seconds to sleep between updates
+; Default: 1
+interval = 3.0
+
+; Test connectivity every Nth update
+; A value of 0 disables the feature
+; NOTE: Experimental (needs more testing)
+; Default: 0
+;ping-interval = 3
+
+; @deprecated: Define min width using token specifiers (%downspeed:min% and %upspeed:min%)
+; Minimum output width of upload/download rate
+; Default: 3
+udspeed-minwidth = 5
+
+; Accumulate values from all interfaces
+; when querying for up/downspeed rate
+; Default: false
+accumulate-stats = true
+
+; Consider an `UNKNOWN` interface state as up.
+; Some devices have an unknown state, even when they're running
+; Default: false
+unknown-as-up = true
+
+vim:ft=dosini

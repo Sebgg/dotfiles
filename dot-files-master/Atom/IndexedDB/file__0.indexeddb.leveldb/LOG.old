@@ -1,0 +1,6 @@
+2018/09/13-10:25:00.456 2639 Reusing MANIFEST /home/sebgr273/.config/Atom/IndexedDB/file__0.indexeddb.leveldb/MANIFEST-000001
+2018/09/13-10:25:00.456 2639 Recovering log #37
+2018/09/13-10:25:00.483 2639 Reusing old log /home/sebgr273/.config/Atom/IndexedDB/file__0.indexeddb.leveldb/000037.log 
+2018/09/13-10:28:19.683 2776 Level-0 table #41: started
+2018/09/13-10:28:19.719 2776 Level-0 table #41: 1973967 bytes OK
+2018/09/13-10:28:19.723 2776 Delete type=0 #37
